@@ -1,0 +1,42 @@
+﻿@model List<Activity4.Models.ButtonModel>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Button</title>
+</head>
+<body>
+    <div>
+    
+    </div>
+        @("Number of buttons is " + Model.Count)<br/>
+        @using(Html.BeginForm("OnButtonClick", "Button"))
+        {
+            <button type="submit" name="mine" value="1">
+                @if (Model[0].State)
+                {
+                    <img src="~/Images/On.png"/>
+                }
+                else
+                {
+                    <img src="~/Images/Off.png"/>
+                }
+            </button><br/>
+            <button type="submit" name="mine" value="2">
+                @if (Model[1].State)
+                {
+                    <img src="~/Images/On.png" />
+                }
+                else
+                {
+                    <img src="~/Images/Off.png" />
+                }
+            </button><br />
+        }
+</body>
+</html>
