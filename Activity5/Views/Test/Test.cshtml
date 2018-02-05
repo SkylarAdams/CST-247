@@ -1,0 +1,57 @@
+﻿@model List<Activity4.Models.UserModel>
+@{
+    ViewBag.Title = "My App";
+    Layout ="~/Views/Shared/_MyDefaultLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Test</title>
+    <style>
+        .CustomerLabel {
+            font-size: 18px; 
+            font-family:Arial; 
+                        font-weight: bold; 
+                        color: blue; 
+                        text-align: left; 
+                        display: block;}
+
+    </style>
+
+</head>
+<body>
+    <div> 
+        @Html.Label("Welcome to Razor", new { style = "font-size: 24px; font-family: arial; font-weight: bold; color: black; text-align: center; display: block"})<br />
+
+        @Html.Label("All my customers: ", new { @class = "CustomerLabel"})
+    </div>
+
+    <table>
+        <tr>
+            <th width="25%" align="center">Name</th>
+            <th width="50%" align="center">Email Address</th>
+            <th width="25%" align="center">Phone Number</th>
+        </tr>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td align="left">@Html.DisplayFor(modelItem =>user.Name)</td>
+                <td align="left">@Html.DisplayFor(modelItem => user.EmailAddress)</td>
+                <td align="left">@Html.DisplayFor(modelItem => user.PhoneNumber)</td>
+            </tr>
+        }
+    </table>
+
+    <br />
+    <div>
+        @Html.ActionLink("Button Play", "../Button");
+
+    </div>
+
+
+
+</body>
+</html>
